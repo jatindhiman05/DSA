@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-void fullPyramid()
+void invertedFullPyramid()
 {
-    for (int row = 0; row < 5; row++)
+    for (int row = 0; row < 4; row++)
     {
-        for (int col = 0; col < 5 - row - 1; col++)
+        for (int col = 0; col < row; col++)
         {
             cout << " ";
         }
 
-        for (int col = 0; col < row + 1; col++)
+        for (int col = 0; col < 4 - row; col++)
         {
             cout << "* ";
         }
@@ -21,7 +21,7 @@ void fullPyramid()
 
 int main()
 {
-    fullPyramid();
+    invertedFullPyramid();
 
     return 0;
 }
