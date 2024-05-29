@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+// Given an integer array nums, find the 
+// subarray
+//  with the largest sum, and return its sum.
+
 // brute force -> O(n^2)
 class Solution
 {
