@@ -12,23 +12,19 @@ public:
         {
             return false;
         }
+        unordered_map<char, char> s_to_t_map;
+        unordered_map<char, char> t_to_s_map;
 
-        unordered_map<char, char> map_st;
-        unordered_map<char, char> map_ts;
-
-        for (int i = 0; i < t.length(); i++)
+        for (int i = 0; i < s.length(); i++)
         {
-            if (map_st.find(s[i]) != map_st.end() && map_st[s[i]] != t[i])
+            if ((s_to_t_map.find(s[i]) != s_to_t_map.end() && s_to_t_map[s[i]] != t[i]) 
+            || (t_to_s_map.find(t[i]) != t_to_s_map.end() && t_to_s_map[t[i]] != s[i]))
             {
                 return false;
             }
-            map_st[s[i]] = t[i];
 
-            if (map_ts.find(t[i]) != map_st.end() && map_ts[t[i]] != s[i])
-            {
-                return false;
-            }
-            map_ts[t[i]] = s[i];
+            s_to_t_map[s[i]] = t[i];
+            t_to_s_map[t[i]] = s[i];
         }
 
         return true;
