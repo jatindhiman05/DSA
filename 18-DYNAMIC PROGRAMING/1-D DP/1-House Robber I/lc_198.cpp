@@ -33,3 +33,29 @@ public:
 };
 
 // bottom up
+
+class Solution
+{
+public:
+    int t[101];
+    int choryKaro_bottomUp(vector<int> &nums)
+    {
+        t[0] = 0;
+        t[1] = nums[0];
+
+        for (int i = 2; i <= nums.size(); i++)
+        {
+            int steal = nums[i - 1] + t[i - 2];
+            int skip = t[i - 1];
+            t[i] = max(steal, skip);
+        }
+
+        return t[nums.size()];
+    }
+
+    int rob(vector<int> &nums)
+    {
+        memset(t, -1, sizeof(t));
+        return choryKaro_bottomUp(nums);
+    }
+};
