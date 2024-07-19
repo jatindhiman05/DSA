@@ -1,0 +1,46 @@
+// https://www.naukri.com/code360/problems/nodes-in-complete-binary-tree_1281151?
+#include <iostream>
+using namespace std;
+
+int findLeftHeight(BinaryTreeNode<int> *root)
+{
+
+    int h = 0;
+    while (root)
+    {
+        h++;
+        root = root->left;
+    }
+    return h;
+}
+
+int findRightHeight(BinaryTreeNode<int> *root)
+{
+
+    int h = 0;
+    while (root)
+    {
+        h++;
+        root = root->right;
+    }
+    return h;
+}
+
+int countNodes(BinaryTreeNode<int> *root)
+{
+    if (!root)
+    {
+        return 0;
+    }
+
+    int lh = findLeftHeight(root);
+
+    int rh = findRightHeight(root);
+
+    if (lh == rh)
+    {
+        return pow(2, lh) - 1;
+    }
+
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
