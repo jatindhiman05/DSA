@@ -1,4 +1,5 @@
 // https://www.geeksforgeeks.org/problems/topological-sort/1
+// for any edge u to v 
 #include <iostream>
 #include <vector>
 #include <stack>
